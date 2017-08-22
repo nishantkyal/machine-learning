@@ -13,11 +13,12 @@ Music discovery is a challenge for almost everybody who loves music because of t
 
 Due to the very subjective nature of taste, it's hard to define metrics that will sufficiently capture a person's taste in music. Genre is a simple metric to define the kind of music which brings us closer to defining the kind of music in a song while cutting across other factors that influence choice of music like artist, country etc. 
 
-In this project, I aim to develop an algorithm to determine genre of a given piece of music. Additionally, I'd like to identify other attributes that can be used to group similar music together.
-
 ### Problem Statement
 
-The problem at hand is making music discovery simpler by analyzing existing labelled data as well as raw music files to identify music that sounds and feels similar. This can be used to build a system which can recommend new music given somebody's listening history and other feedback like likes/dislikes (direct feedback) or playback behavior (playing on repeat
+There are two parts to the problem statement.
+
+First is making music discovery simpler by analyzing existing labelled data as well as raw music files to identify music that sounds and feels similar. This can be used to build a system which can recommend new music given somebody's listening history and other feedback like likes/dislikes (direct feedback) or playback behavior (playing on repeat). For this I'll attempt to predict genre of a music file given past music data with genre assigned. This is a multi-label classification problem.
+
 
 ### Datasets and Inputs
 _(approx. 2-3 paragraphs)_
