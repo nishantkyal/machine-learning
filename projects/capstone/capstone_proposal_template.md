@@ -6,15 +6,18 @@ August 21st, 2017
 ## Proposal
 _(approx. 2-3 pages)_
 
-### Domain Background
-_(approx. 1-2 paragraphs)_
 
-In this section, provide brief details on the background information of the domain from which the project is proposed. Historical information relevant to the project should be included. It should be clear how or why a problem in the domain can or should be solved. Related academic research should be appropriately cited in this section, including why that research is relevant. Additionally, a discussion of your personal motivation for investigating a particular problem in the domain is encouraged but not required.
+### Domain Background
+
+Music discovery is a challenge for almost everybody who loves music because of the sheer amount on music that is produced every day. Because there is so much music available, it's safe to assume that there's enough music available to suit everybody's tastes if only music could be categorized efficiently. There are a number of companies working on this but there is still a lot to be done.
+
+Due to the very subjective nature of taste, it's hard to define metrics that will sufficiently capture a person's taste in music. Genre is a simple metric to define the kind of music which brings us closer to defining the kind of music in a song while cutting across other factors that influence choice of music like artist, country etc. 
+
+In this project, I aim to develop an algorithm to determine genre of a given piece of music. Additionally, I'd like to identify other attributes that can be used to group similar music together.
 
 ### Problem Statement
-_(approx. 1 paragraph)_
 
-In this section, clearly describe the problem that is to be solved. The problem described should be well defined and should have at least one relevant potential solution. Additionally, describe the problem thoroughly such that it is clear that the problem is quantifiable (the problem can be expressed in mathematical or logical terms) , measurable (the problem can be measured by some metric and clearly observed), and replicable (the problem can be reproduced and occurs more than once).
+The problem at hand is making music discovery simpler by analyzing existing labelled data as well as raw music files to identify music that sounds and feels similar. This can be used to build a system which can recommend new music given somebody's listening history and other feedback like likes/dislikes (direct feedback) or playback behavior (playing on repeat
 
 ### Datasets and Inputs
 _(approx. 2-3 paragraphs)_
