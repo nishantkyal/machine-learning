@@ -19,7 +19,17 @@ The problem to solve is making music discovery simpler by analyzing existing lab
 
 ### Datasets and Inputs
 
-I'll be using following datasets to 
+I'll be using following publicly available datasets for the project: -
+
+* Million song dataset - https://aws.amazon.com/datasets/million-song-dataset/
+
+* Million Song Dataset Echo Nest mapping archive - https://labs.acousticbrainz.org/million-song-dataset-echonest-archive
+
+* Musicbrainz API - https://wiki.musicbrainz.org/Development/JSON_Web_Service
+
+The last two are needed to get genre information for each song in the dataset since it's not a part of the million song dataset. I'll first resolve musicbrainz ids for each of the songs in the Million Song Dataset using the mapping dataset. Next step will be to poll musicbrainz API to get genre for each song.
+
+The million song dataset has various indicators like loudness, energy, danceability and artist information which could be good features for genre detection. 
 
 ### Solution Statement
 _(approx. 1 paragraph)_
