@@ -4,8 +4,6 @@ Nishant Kyal
 August 21st, 2017
 
 ## Proposal
-_(approx. 2-3 pages)_
-
 
 ### Domain Background
 
