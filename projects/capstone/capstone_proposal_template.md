@@ -21,25 +21,40 @@ The problem to solve is making music discovery simpler by analyzing existing lab
 
 I'll be using following publicly available datasets for the project: -
 
-* Million song dataset - https://aws.amazon.com/datasets/million-song-dataset/
+* Million song dataset (referred as MSD henceforth) - https://aws.amazon.com/datasets/million-song-dataset/ (citation: Thierry Bertin-Mahieux, Daniel P.W. Ellis, Brian Whitman, and Paul Lamere. The Million Song Dataset. In Proceedings of the 12th International Society for Music Information Retrieval Conference (ISMIR 2011), 2011.)
 
-* Million Song Dataset Echo Nest mapping archive - https://labs.acousticbrainz.org/million-song-dataset-echonest-archive
+* Genre dataset (GenreDS) - http://www.tagtraum.com/msd_genre_datasets.html (citation: http://www.tagtraum.com/download/schreiber_msdgenre_ismir2015.pdf)
 
-* Musicbrainz API - https://wiki.musicbrainz.org/Development/JSON_Web_Service
-
-The last two are needed to get genre information for each song in the dataset since it's not a part of the million song dataset. I'll first resolve musicbrainz ids for each of the songs in the Million Song Dataset using the mapping dataset. Next step will be to poll musicbrainz API to get genre for each song.
-
-The million song dataset has various indicators like loudness, energy, danceability and artist information which could be good features for genre detection. 
+MSD contains metadata like artist, title as well as musical properties. Each track has segments for which musical properties like chroma features and MFCC-like timbre features are provided. Additional musical properties like beats, loudness, danceability are also provided.
 
 ### Solution Statement
-_(approx. 1 paragraph)_
 
-In this section, clearly describe a solution to the problem. The solution should be applicable to the project domain and appropriate for the dataset(s) or input(s) given. Additionally, describe the solution thoroughly such that it is clear that the solution is quantifiable (the solution can be expressed in mathematical or logical terms) , measurable (the solution can be measured by some metric and clearly observed), and replicable (the solution can be reproduced and occurs more than once).
+The solution can be broken into following steps: -
+
+* Data preparation: Extract relevant features and prepare a dataset for learning. Based on my research about the topic and dataset, segments features are intuitively very representative of kind of music because they encapsulate the timbre (indicative of instruments) and pitch (indicative of notes). Other features like loudness, beats, artist and danceability are also good features. We'll keep the artist out of feature set though it makes an assumption that an artist sticks to a genre always which is not true (http://www.rollingstone.com/music/news/10-artists-who-switched-genres-20130521).
+
+* Since the number of features per track are going to be high, (each segment has 12 chroma and 12 MFCC features and there will be many segments per track), we'll train a CNN on the feature set with the known labels as targets. We'll not be able to augment the data by perturbing it because of the nature of the data (these are not actual audio samples but features extracted from original audio). This approach doesn't take into account order in which segments appear but I don't know how to factor that in. We can also try to add more data to the set using mentioned technique (https://labrosa.ee.columbia.edu/millionsong/pages/can-i-add-my-audio-dataset)
+
+* Split train, validation and test data. 
+
+* Success metric of the solution is performance on test set. It'll be important to disambiguate the targets since the GenreDS allows ambiguity (as per their documentation). 
+
 
 ### Benchmark Model
-_(approximately 1-2 paragraphs)_
 
-In this section, provide the details for a benchmark model or result that relates to the domain, problem statement, and intended solution. Ideally, the benchmark model or result contextualizes existing methods or known information in the domain and problem given, which could then be objectively compared to the solution. Describe how the benchmark model or result is measurable (can be measured by some metric and clearly observed) with thorough detail.
+The problem of genre detection on the MSD has been attempted and solved before. Here are a few relevant benchmarks and projects that are relevant: -
+
+* http://www.ee.columbia.edu/~dliang/files/FINAL.pdf
+
+* https://github.com/CSTR-Edinburgh/mlpractical/blob/mlp2016-7/coursework3-4/notebooks/09b_Music_genre_classification_with_the_Million_Song_Dataset.ipynb
+
+* http://dl.acm.org/citation.cfm?id=2348480 (don't have access but could contain benchmark information)
+
+* https://www.researchgate.net/publication/254464824_Genre_classification_for_million_song_dataset_using_confidence-based_classifiers_combination
+
+* https://www.quora.com/How-do-I-work-with-the-Million-Song-Dataset - This link describes a researcher's approach of using MSD to augment actual audio instead of using MSD as the only source.
+
+Based on first paper, it is possible to get 28-35% accuracy by using lyrics information in conjugation with MSD.
 
 ### Evaluation Metrics
 _(approx. 1-2 paragraphs)_
