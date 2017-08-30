@@ -1,60 +1,35 @@
 # Machine Learning Engineer Nanodegree
 ## Capstone Proposal
-Nishant Kyal  
-August 21st, 2017
+Joe Udacity  
+December 31st, 2050
 
 ## Proposal
 _(approx. 2-3 pages)_
 
-
 ### Domain Background
+_(approx. 1-2 paragraphs)_
 
-Music discovery is a challenge for almost everybody who loves music because of the sheer amount on music that is produced every day. Because there is so much music available, it's safe to assume that there's enough music available to suit everybody's tastes if only music could be categorized efficiently. There are a number of companies working on this but there is still a lot to be done.
-
-Due to the very subjective nature of taste, it's hard to define metrics that will sufficiently capture a person's taste in music. Genre is a simple metric to define the kind of music which brings us closer to defining the kind of music in a song while cutting across other factors that influence choice of music like artist, country etc. 
+In this section, provide brief details on the background information of the domain from which the project is proposed. Historical information relevant to the project should be included. It should be clear how or why a problem in the domain can or should be solved. Related academic research should be appropriately cited in this section, including why that research is relevant. Additionally, a discussion of your personal motivation for investigating a particular problem in the domain is encouraged but not required.
 
 ### Problem Statement
+_(approx. 1 paragraph)_
 
-The problem to solve is making music discovery simpler by analyzing existing labelled data as well as raw music files to identify music that sounds and feels similar. This can be used to build a system which can recommend new music given somebody's listening history and other feedback like likes/dislikes (direct feedback) or playback behavior (playing on repeat). For this I'll attempt to predict genre of a music file given past music data with genre assigned. This is a multi-label classification problem.
+In this section, clearly describe the problem that is to be solved. The problem described should be well defined and should have at least one relevant potential solution. Additionally, describe the problem thoroughly such that it is clear that the problem is quantifiable (the problem can be expressed in mathematical or logical terms) , measurable (the problem can be measured by some metric and clearly observed), and replicable (the problem can be reproduced and occurs more than once).
 
 ### Datasets and Inputs
+_(approx. 2-3 paragraphs)_
 
-I'll be using following publicly available datasets for the project: -
-
-* Million song dataset (referred as MSD henceforth) - https://aws.amazon.com/datasets/million-song-dataset/ (citation: Thierry Bertin-Mahieux, Daniel P.W. Ellis, Brian Whitman, and Paul Lamere. The Million Song Dataset. In Proceedings of the 12th International Society for Music Information Retrieval Conference (ISMIR 2011), 2011.)
-
-* Genre dataset (GenreDS) - http://www.tagtraum.com/msd_genre_datasets.html (citation: http://www.tagtraum.com/download/schreiber_msdgenre_ismir2015.pdf)
-
-MSD contains metadata like artist, title as well as musical properties. Each track has segments for which musical properties like chroma features and MFCC-like timbre features are provided. Additional musical properties like beats, loudness, danceability are also provided.
+In this section, the dataset(s) and/or input(s) being considered for the project should be thoroughly described, such as how they relate to the problem and why they should be used. Information such as how the dataset or input is (was) obtained, and the characteristics of the dataset or input, should be included with relevant references and citations as necessary It should be clear how the dataset(s) or input(s) will be used in the project and whether their use is appropriate given the context of the problem.
 
 ### Solution Statement
+_(approx. 1 paragraph)_
 
-The solution can be broken into following steps: -
-
-* Data preparation: Extract relevant features and prepare a dataset for learning. Based on my research about the topic and dataset, segments features are intuitively very representative of kind of music because they encapsulate the timbre (indicative of instruments) and pitch (indicative of notes). Other features like loudness, beats, artist and danceability are also good features. We'll keep the artist out of feature set though it makes an assumption that an artist sticks to a genre always which is not true (http://www.rollingstone.com/music/news/10-artists-who-switched-genres-20130521).
-
-* Since the number of features per track are going to be high, (each segment has 12 chroma and 12 MFCC features and there will be many segments per track), we'll train a CNN on the feature set with the known labels as targets. We'll not be able to augment the data by perturbing it because of the nature of the data (these are not actual audio samples but features extracted from original audio). This approach doesn't take into account order in which segments appear but I don't know how to factor that in. We can also try to add more data to the set using mentioned technique (https://labrosa.ee.columbia.edu/millionsong/pages/can-i-add-my-audio-dataset)
-
-* Split train, validation and test data. 
-
-* Success metric of the solution is performance on test set. It'll be important to disambiguate the targets since the GenreDS allows ambiguity (as per their documentation). 
-
+In this section, clearly describe a solution to the problem. The solution should be applicable to the project domain and appropriate for the dataset(s) or input(s) given. Additionally, describe the solution thoroughly such that it is clear that the solution is quantifiable (the solution can be expressed in mathematical or logical terms) , measurable (the solution can be measured by some metric and clearly observed), and replicable (the solution can be reproduced and occurs more than once).
 
 ### Benchmark Model
+_(approximately 1-2 paragraphs)_
 
-The problem of genre detection on the MSD has been attempted and solved before. Here are a few relevant benchmarks and projects that are relevant: -
-
-* http://www.ee.columbia.edu/~dliang/files/FINAL.pdf
-
-* https://github.com/CSTR-Edinburgh/mlpractical/blob/mlp2016-7/coursework3-4/notebooks/09b_Music_genre_classification_with_the_Million_Song_Dataset.ipynb
-
-* http://dl.acm.org/citation.cfm?id=2348480 (don't have access but could contain benchmark information)
-
-* https://www.researchgate.net/publication/254464824_Genre_classification_for_million_song_dataset_using_confidence-based_classifiers_combination
-
-* https://www.quora.com/How-do-I-work-with-the-Million-Song-Dataset - This link describes a researcher's approach of using MSD to augment actual audio instead of using MSD as the only source.
-
-Based on first paper, it is possible to get 28-35% accuracy by using lyrics information in conjugation with MSD.
+In this section, provide the details for a benchmark model or result that relates to the domain, problem statement, and intended solution. Ideally, the benchmark model or result contextualizes existing methods or known information in the domain and problem given, which could then be objectively compared to the solution. Describe how the benchmark model or result is measurable (can be measured by some metric and clearly observed) with thorough detail.
 
 ### Evaluation Metrics
 _(approx. 1-2 paragraphs)_
