@@ -43,26 +43,25 @@ The solution can be broken into following steps: -
 The problem of genre detection on the MSD has been attempted and solved before. Here are a few relevant benchmarks and projects that are relevant: -
 
 * http://www.ee.columbia.edu/~dliang/files/FINAL.pdf
+Uses MSD only for tag information and extracts all musical information on it's own by using other methods like Genre-HMM combined with a bag of word on the lyrics to determine genre. They were able to achieve 28-35% accuracy on genre detection using a combination of features. They use tags specified in the MSD while I think they should have looked at other sources for better tag information as the tags in MSD are for artists and not songs.
 
 * https://github.com/CSTR-Edinburgh/mlpractical/blob/mlp2016-7/coursework3-4/notebooks/09b_Music_genre_classification_with_the_Million_Song_Dataset.ipynb
-
-* http://dl.acm.org/citation.cfm?id=2348480 (don't have access but could contain benchmark information)
+This is part of Edinburgh University coursework and uses two sources of genre tags in conjugation with MSD. This is run as private contest on Kaggle and results are not available. The methdology for generating the feature set is described which is something we can reuse here and adding more relevant features to the set which seem to have been missed.
 
 * https://www.researchgate.net/publication/254464824_Genre_classification_for_million_song_dataset_using_confidence-based_classifiers_combination
+This approach uses a combination of classifiers like SVM, NN and Naive-Bayes to achieve a 83.66% accuracy. Each classifier is trained on a different set of features and classfiers are combined based on classification authority and confidence.
 
-* https://www.quora.com/How-do-I-work-with-the-Million-Song-Dataset - This link describes a researcher's approach of using MSD to augment actual audio instead of using MSD as the only source.
+* There are other attempts although on different datasets
+https://www.mitacs.ca/en/projects/automatic-genre-detection-intelligent-audio-tools
+https://www.researchgate.net/publication/3333877_Musical_genre_classification_of_audio_signals_IEEE_Trans_Speech_Audio_Process
+I don't have access to this material.
 
-Based on first paper, it is possible to get 28-35% accuracy by using lyrics information in conjugation with MSD.
 
 ### Evaluation Metrics
-_(approx. 1-2 paragraphs)_
 
-In this section, propose at least one evaluation metric that can be used to quantify the performance of both the benchmark model and the solution model. The evaluation metric(s) you propose should be appropriate given the context of the data, the problem statement, and the intended solution. Describe how the evaluation metric(s) are derived and provide an example of their mathematical representations (if applicable). Complex evaluation metrics should be clearly defined and quantifiable (can be expressed in mathematical or logical terms).
+The project will be evaluated on accuracy achieved on genre classification. The best benchmark available is able to predict genres with an accuracy of 83.66%. The benchmark models listed above differ in feature set as well as models used to classify genres, but goal of this project will be to achieve comparable accuracy by using CNN and taking into account a larger feature set. 
 
 ### Project Design
-_(approx. 1 page)_
-
-In this final section, summarize a theoretical workflow for approaching a solution given the problem. Provide thorough discussion for what strategies you may consider employing, what analysis of the data might be required before being used, or which algorithms will be considered for your implementation. The workflow and discussion that you provide should align with the qualities of the previous sections. Additionally, you are encouraged to include small visualizations, pseudocode, or diagrams to aid in describing the project design, but it is not required. The discussion should clearly outline your intended workflow of the capstone project.
 
 -----------
 
