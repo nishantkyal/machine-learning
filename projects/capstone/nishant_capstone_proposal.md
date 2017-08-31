@@ -63,6 +63,24 @@ The project will be evaluated on accuracy achieved on genre classification. The 
 
 ### Project Design
 
+The project will be broken into following steps: -
+
+* Data preparation
+    * Extract relevant features from MSD. Relevant features list based on initial intuition is segment, beats, loudness, danceability, energy, tempo, artist, year of release. Artist and year will be one hot encoded. Segment comprise two 12 dimensional vectors of chroma and timbre features.
+    * Extract labels for each track from GenreDS. According to documentation, the GenreDS has multiple tags to allow for ambiguity since they're compiled from various other data sources. We'll have to define how we disambiguate and assign one genre label to each track.
+
+* Data analysis
+We'll first analyze data to see if there is correlation between features that we've included by intuition like year, artist. If no correlaton is found, they can be eliminated from further processing.
+
+* Define train, test and validation data sets
+Once dataset is available, we'll separate it into train, validation and test sets. 
+
+* Design a CNN
+The network will comprise several convolution layers followed by pooling layers and then fully connected layers. It'll finally terminate in softmax classifiers (size equal to number of labels ~15)
+By intuition, following features define the genre characteristics of music. Pitch (notes played), timbre (instruments used), loudness, beats (percussion) and danceability (could be a function of tempo and/or beats). So I'll start with 4 convolution layers expecting each of them to learn one each of the above features.
+Artist and year is found relevant will be used to train a supervised learning classifier independently and results of the two experiments combined to define the final prediction.
+
+
 -----------
 
 **Before submitting your proposal, ask yourself. . .**
