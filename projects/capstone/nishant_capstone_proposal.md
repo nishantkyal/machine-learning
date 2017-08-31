@@ -1,7 +1,7 @@
 # Machine Learning Engineer Nanodegree
 ## Capstone Proposal
 Nishant Kyal  
-August 21st, 2017
+August 31st, 2017
 
 ## Proposal
 
