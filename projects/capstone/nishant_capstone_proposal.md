@@ -42,19 +42,20 @@ The solution can be broken into following steps: -
 
 The problem of genre detection on the MSD has been attempted and solved before. Here are a few relevant benchmarks and projects that are relevant: -
 
-* http://www.ee.columbia.edu/~dliang/files/FINAL.pdf
+* http://www.ee.columbia.edu/~dliang/files/FINAL.pdf (citation: Music Genre Classification with the Million Song Dataset 15-826 Final Report by Dawen Liang,† Haijie Gu,‡ and Brendan O’Connor‡† School of Music, ‡ Machine Learning Department, Carnegie Mellon University , December 3, 2011)
 Uses MSD only for tag information and extracts all musical information on it's own by using other methods like Genre-HMM combined with a bag of word on the lyrics to determine genre. They were able to achieve 28-35% accuracy on genre detection using a combination of features. They use tags specified in the MSD while I think they should have looked at other sources for better tag information as the tags in MSD are for artists and not songs.
 
 * https://github.com/CSTR-Edinburgh/mlpractical/blob/mlp2016-7/coursework3-4/notebooks/09b_Music_genre_classification_with_the_Million_Song_Dataset.ipynb
 This is part of Edinburgh University coursework and uses two sources of genre tags in conjugation with MSD. This is run as private contest on Kaggle and results are not available. The methdology for generating the feature set is described which is something we can reuse here and adding more relevant features to the set which seem to have been missed.
 
-* https://www.researchgate.net/publication/254464824_Genre_classification_for_million_song_dataset_using_confidence-based_classifiers_combination
+* http://dl.acm.org/citation.cfm?id=2348480 (citation: Yajie Hu and Mitsunori Ogihara. 2012. Genre classification for million song dataset using confidence-based classifiers combination. In Proceedings of the 35th international ACM SIGIR conference on Research and development in information retrieval (SIGIR '12). ACM, New York, NY, USA, 1083-1084. DOI: https://doi.org/10.1145/2348283.2348480)
+
 This approach uses a combination of classifiers like SVM, NN and Naive-Bayes to achieve a 83.66% accuracy. Each classifier is trained on a different set of features and classfiers are combined based on classification authority and confidence.
 
 * There are other attempts although on different datasets
 https://www.mitacs.ca/en/projects/automatic-genre-detection-intelligent-audio-tools
 https://www.researchgate.net/publication/3333877_Musical_genre_classification_of_audio_signals_IEEE_Trans_Speech_Audio_Process
-I don't have access to this material.
+I don't have access to this material and haven't used hence not cited.
 
 
 ### Evaluation Metrics
