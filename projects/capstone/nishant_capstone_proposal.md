@@ -25,6 +25,8 @@ I'll be using following publicly available datasets for the project: -
 
 MSD contains metadata like artist, title as well as musical properties. Each track has segments for which musical properties like chroma features and MFCC-like timbre features are provided. Additional musical properties like beats, loudness, danceability are also provided.
 
+As suggested by the name, the MSD contains following fields for a million songs (https://labrosa.ee.columbia.edu/millionsong/pages/field-list). The tracks by nature are of varied lengths and each track has been broken into segments which are based on'quasi-stable music event' - roughly contiguous sections of the audio with similar perceptual quality. This leads to each track having a different number of segments. This makes the input data set variable in size. We can either choose to truncate data (keep songs with more than X segments and use only first X segments of each song) or bucket them into multiple datasets based on number of segments as descibed in (https://github.com/CSTR-Edinburgh/mlpractical/blob/mlp2016-7/coursework3-4/notebooks/09b_Music_genre_classification_with_the_Million_Song_Dataset.ipynb).
+
 ### Solution Statement
 
 The solution can be broken into following steps: -
@@ -60,7 +62,7 @@ I don't have access to this material and haven't used hence not cited.
 
 ### Evaluation Metrics
 
-The project will be evaluated on accuracy achieved on genre classification. The best benchmark available is able to predict genres with an accuracy of 83.66%. The benchmark models listed above differ in feature set as well as models used to classify genres, but goal of this project will be to achieve comparable accuracy by using CNN and taking into account a larger feature set. 
+The project will be evaluated on accuracy achieved on genre classification. The best benchmark available is able to predict genres with an accuracy of 83.66%. The benchmark models listed above differ in feature set as well as models used to classify genres. The findings of the experiment will be compared to the benchmarks subjectively and I'll try to come up with reasons why a certain model performs better compared to others.
 
 ### Project Design
 
