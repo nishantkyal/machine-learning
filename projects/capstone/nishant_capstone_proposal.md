@@ -33,7 +33,7 @@ The solution can be broken into following steps: -
 
 * Data preparation: Extract relevant features and prepare a dataset for learning. Based on my research about the topic and dataset, segments features are intuitively very representative of kind of music because they encapsulate the timbre (indicative of instruments) and pitch (indicative of notes). Other features like loudness, beats, artist and danceability are also good features. We'll keep the artist out of feature set though it makes an assumption that an artist sticks to a genre always which is not true (http://www.rollingstone.com/music/news/10-artists-who-switched-genres-20130521).
 
-* Since the number of features per track are going to be high, (each segment has 12 chroma and 12 MFCC features and there will be many segments per track), we'll train a CNN on the feature set with the known labels as targets. We'll not be able to augment the data by perturbing it because of the nature of the data (these are not actual audio samples but features extracted from original audio). This approach doesn't take into account order in which segments appear but I don't know how to factor that in. We can also try to add more data to the set using mentioned technique (https://labrosa.ee.columbia.edu/millionsong/pages/can-i-add-my-audio-dataset)
+* I'll be using multiple supervised learning classifiers to model the dataset and prediction since the dataset contains engineered features which don't have temporal information. The classifiers used will be Decision Trees, Random Forest, Naive Bayes, SVM and KNN. The objective of using multiple algorithms is to learn about each of them in detail as well as figure out which works the best for prediction in the given case. 
 
 * Split train, validation and test data. 
 
@@ -78,11 +78,13 @@ We'll first analyze data to see if there is correlation between features that we
 * Define train, test and validation data sets
 Once dataset is available, we'll separate it into train, validation and test sets. 
 
-* Design a CNN
-The network will comprise several convolution layers followed by pooling layers and then fully connected layers. It'll finally terminate in softmax classifiers (size equal to number of labels ~15)
-By intuition, following features define the genre characteristics of music. Pitch (notes played), timbre (instruments used), loudness, beats (percussion) and danceability (could be a function of tempo and/or beats). So I'll start with 4 convolution layers expecting each of them to learn one each of the above features.
-Artist and year is found relevant will be used to train a supervised learning classifier independently and results of the two experiments combined to define the final prediction.
-
+* Setup following supervised learning classifiers to model the dataset and evaluate which works the best
+    * KNN (Number of clusters same as number of genres)
+    * Decision Tree
+    * Random Forest (With an expanded set of features)
+    * Naive bayes
+    * SVM
+  I'll use Random Forest to determine which features are the most helpful in classification and then use the other techniques to create the actual model.
 
 -----------
 
